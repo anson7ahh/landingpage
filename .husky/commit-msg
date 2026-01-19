@@ -1,0 +1,31 @@
+#!/bin/sh
+
+pnpm commitlint --edit $1
+
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "❌ Commit message không hợp lệ!"
+    echo ""
+    echo "📝 Format đúng: <type>: <subject>"
+    echo ""
+    echo "🔖 Types cho phép:"
+    echo "   feat     - Tính năng mới"
+    echo "   fix      - Sửa bug"
+    echo "   docs     - Cập nhật docs"
+    echo "   style    - Format code"
+    echo "   refactor - Refactor code"
+    echo "   perf     - Cải thiện performance"
+    echo "   test     - Thêm test"
+    echo "   chore    - Update config/deps"
+    echo "   revert   - Revert commit"
+    echo "   build    - Build system"
+    echo "   ci       - CI/CD"
+    echo ""
+    echo "✅ Ví dụ hợp lệ:"
+    echo "   feat: add login page"
+    echo "   fix: resolve database connection"
+    echo "   docs: update README"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
